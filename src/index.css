@@ -1,6 +1,54 @@
 @import "tailwindcss";
 
-/* Optional: Add smooth scrolling for the whole page */
 html {
   scroll-behavior: smooth;
+}
+
+/* --- Custom Animations --- */
+
+/* Floating Animation for Hero Image */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Moving Gradient Background */
+@keyframes gradient-xy {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fade In Up for Scroll Reveal */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient-xy {
+  background-size: 400% 400%;
+  animation: gradient-xy 15s ease infinite;
+}
+
+/* Reveal on Scroll State Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
