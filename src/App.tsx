@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { personalDetails, skills, projects, services } from './data';
 import { Menu, X, Github, Linkedin, Mail, Copyright } from 'lucide-react';
 import ProjectCard from './components/ProjectCard';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+// FIXED LINE BELOW: Added 'type' before Variants
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
 // Helper function to calculate age
@@ -21,7 +22,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Animation Variants (The "Dynamic" Logic)
-  // FIXED: Added ': Variants' type to satisfy TypeScript
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -30,7 +30,6 @@ function App() {
     }
   };
 
-  // FIXED: Added ': Variants' type to satisfy TypeScript
   const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { 
