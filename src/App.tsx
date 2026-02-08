@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { personalDetails, skills, projects, services } from './data';
 import { Menu, X, Github, Linkedin, Mail, Copyright } from 'lucide-react';
 import ProjectCard from './components/ProjectCard';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 
 // Helper function to calculate age
@@ -21,20 +21,22 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Animation Variants (The "Dynamic" Logic)
-  const containerVariants = {
+  // FIXED: Added ': Variants' type to satisfy TypeScript
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
-      transition: { staggerChildren: 0.2 } // Stagger effect for children
+      transition: { staggerChildren: 0.2 }
     }
   };
 
-  const itemVariants = {
+  // FIXED: Added ': Variants' type to satisfy TypeScript
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: { 
       y: 0, 
       opacity: 1, 
-      transition: { type: "spring", stiffness: 100 } // Spring physics
+      transition: { type: "spring", stiffness: 100 }
     }
   };
 
